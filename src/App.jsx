@@ -87,7 +87,7 @@ function App() {
       "$1",
     );
     axios.defaults.headers.common['Authorization'] = token;
-    checkUserLogin();
+    // checkUserLogin();
   }, [])
 
 
