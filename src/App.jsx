@@ -88,7 +88,7 @@ function App() {
     );
     axios.defaults.headers.common['Authorization'] = token;
     // checkUserLogin();
-  }, [])
+  }, [checkUserLogin])
 
 
   const productModalRef = useRef(null);
