@@ -32,7 +32,7 @@ function App() {
       ...user,//展開：把原始物件展開帶入
       [name]: value
     })
-    console.log(user);
+    // console.log(user);
   }
 
   const getProducts = async () => {
@@ -64,7 +64,7 @@ function App() {
       
     } catch (error) {
       console.log('登入失敗');
-      
+      alert('請重新登入');
     }
   }
 
@@ -76,8 +76,8 @@ function App() {
       setIsAuth(true);
       
     } catch (error) {
-      console.log(error);
-      
+      // console.log(error);
+      alert('請重新登入');
     }
   }
 
@@ -87,8 +87,8 @@ function App() {
       "$1",
     );
     axios.defaults.headers.common['Authorization'] = token;
-    // checkUserLogin();
-  }, [checkUserLogin])
+    checkUserLogin();
+  }, [])
 
 
   const productModalRef = useRef(null);
@@ -338,7 +338,7 @@ function App() {
                         value={tempProduct.imageUrl}
                         onChange={handleModalInputChange}
                         name="imageUrl"
-                        type="text"
+                        type="url"
                         id="primary-image"
                         className="form-control"
                         placeholder="請輸入圖片連結"
@@ -365,7 +365,7 @@ function App() {
                           value={image || ""}
                           onChange={(e) => handleImageChange(e, index)}
                           id={`imagesUrl-${index + 1}`}
-                          type="text"
+                          type="url"
                           placeholder={`圖片網址 ${index + 1}`}
                           className="form-control mb-2"
                         />
